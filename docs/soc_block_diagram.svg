@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 z" fill="#444"/>
+    </marker>
+    <marker id="arr2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 z" fill="#2f6db3"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="560" fill="#ffffff"/>
+  <text x="450" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="#222">Three-Core Nios II/f MPSoC, DE10-Lite (MAX 10 FPGA)</text>
+
+  <!-- External devices -->
+  <rect x="20" y="120" width="120" height="52" rx="6" fill="#f6e8d5" stroke="#b98a45" stroke-width="1.5"/>
+  <text x="80" y="142" text-anchor="middle" font-size="12" font-weight="bold" fill="#5c421c">ESP32-CAM</text>
+  <text x="80" y="158" text-anchor="middle" font-size="10" fill="#5c421c">160x120 RGB444</text>
+
+  <rect x="20" y="200" width="120" height="46" rx="6" fill="#f6e8d5" stroke="#b98a45" stroke-width="1.5"/>
+  <text x="80" y="220" text-anchor="middle" font-size="12" font-weight="bold" fill="#5c421c">ADXL345</text>
+  <text x="80" y="235" text-anchor="middle" font-size="10" fill="#5c421c">accelerometer</text>
+
+  <rect x="760" y="150" width="120" height="52" rx="6" fill="#f6e8d5" stroke="#b98a45" stroke-width="1.5"/>
+  <text x="820" y="172" text-anchor="middle" font-size="12" font-weight="bold" fill="#5c421c">VGA display</text>
+  <text x="820" y="188" text-anchor="middle" font-size="10" fill="#5c421c">640x480</text>
+
+  <!-- CPU1 -->
+  <rect x="185" y="110" width="160" height="140" rx="8" fill="#dcebf7" stroke="#2f6db3" stroke-width="2"/>
+  <text x="265" y="134" text-anchor="middle" font-size="13" font-weight="bold" fill="#1d4e7d">CPU1 (Nios II/f)</text>
+  <text x="265" y="154" text-anchor="middle" font-size="11" fill="#1d4e7d">Capture core</text>
+  <text x="265" y="176" text-anchor="middle" font-size="10" fill="#333">SPI frame capture</text>
+  <text x="265" y="192" text-anchor="middle" font-size="10" fill="#333">ADXL345 sampling</text>
+  <text x="265" y="208" text-anchor="middle" font-size="10" fill="#333">writes FRAME0</text>
+  <text x="265" y="224" text-anchor="middle" font-size="10" fill="#333">(mutex-protected)</text>
+
+  <!-- CPU0 -->
+  <rect x="380" y="110" width="160" height="140" rx="8" fill="#dcebf7" stroke="#2f6db3" stroke-width="2"/>
+  <text x="460" y="134" text-anchor="middle" font-size="13" font-weight="bold" fill="#1d4e7d">CPU0 (Nios II/f)</text>
+  <text x="460" y="154" text-anchor="middle" font-size="11" fill="#1d4e7d">Processing + control</text>
+  <text x="460" y="176" text-anchor="middle" font-size="10" fill="#333">unpack / flip</text>
+  <text x="460" y="192" text-anchor="middle" font-size="10" fill="#333">box blur / Sobel</text>
+  <text x="460" y="208" text-anchor="middle" font-size="10" fill="#333">mode state machine</text>
+  <text x="460" y="224" text-anchor="middle" font-size="10" fill="#333">pixel dispatcher</text>
+
+  <!-- CPU2 -->
+  <rect x="575" y="110" width="160" height="140" rx="8" fill="#dcebf7" stroke="#2f6db3" stroke-width="2"/>
+  <text x="655" y="134" text-anchor="middle" font-size="13" font-weight="bold" fill="#1d4e7d">CPU2 (Nios II/f)</text>
+  <text x="655" y="154" text-anchor="middle" font-size="11" fill="#1d4e7d">Display core</text>
+  <text x="655" y="176" text-anchor="middle" font-size="10" fill="#333">VGA rendering</text>
+  <text x="655" y="192" text-anchor="middle" font-size="10" fill="#333">double buffering</text>
+  <text x="655" y="208" text-anchor="middle" font-size="10" fill="#333">integer upscaling</text>
+  <text x="655" y="224" text-anchor="middle" font-size="10" fill="#333">bank swap on done</text>
+
+  <!-- External device links -->
+  <line x1="140" y1="146" x2="183" y2="152" stroke="#444" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="158" y="138" font-size="9" fill="#555">SPI</text>
+  <line x1="140" y1="222" x2="183" y2="210" stroke="#444" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="737" y1="176" x2="758" y2="176" stroke="#444" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Avalon interconnect -->
+  <rect x="185" y="300" width="550" height="42" rx="6" fill="#e8e8ee" stroke="#666" stroke-width="1.5"/>
+  <text x="460" y="326" text-anchor="middle" font-size="12" font-weight="bold" fill="#333">Avalon-MM interconnect (Platform Designer / Qsys)</text>
+
+  <line x1="265" y1="250" x2="265" y2="298" stroke="#2f6db3" stroke-width="2"/>
+  <line x1="460" y1="250" x2="460" y2="298" stroke="#2f6db3" stroke-width="2"/>
+  <line x1="655" y1="250" x2="655" y2="298" stroke="#2f6db3" stroke-width="2"/>
+
+  <!-- SDRAM -->
+  <rect x="185" y="380" width="330" height="150" rx="8" fill="#e7f3e4" stroke="#4a8a3f" stroke-width="2"/>
+  <text x="350" y="404" text-anchor="middle" font-size="13" font-weight="bold" fill="#2c5c24">Shared 64 MB SDRAM</text>
+  <rect x="205" y="418" width="90" height="94" rx="4" fill="#ffffff" stroke="#4a8a3f"/>
+  <text x="250" y="440" text-anchor="middle" font-size="10" font-weight="bold" fill="#2c5c24">CPU0 4 MB</text>
+  <text x="250" y="456" text-anchor="middle" font-size="9" fill="#333">code + heap</text>
+  <rect x="305" y="418" width="90" height="94" rx="4" fill="#ffffff" stroke="#4a8a3f"/>
+  <text x="350" y="440" text-anchor="middle" font-size="10" font-weight="bold" fill="#2c5c24">CPU1 4 MB</text>
+  <text x="350" y="456" text-anchor="middle" font-size="9" fill="#333">code + heap</text>
+  <rect x="405" y="418" width="90" height="94" rx="4" fill="#ffffff" stroke="#4a8a3f"/>
+  <text x="450" y="440" text-anchor="middle" font-size="10" font-weight="bold" fill="#2c5c24">CPU2 4 MB</text>
+  <text x="450" y="456" text-anchor="middle" font-size="9" fill="#333">code + heap</text>
+  <text x="350" y="490" text-anchor="middle" font-size="9.5" fill="#2c5c24">+ shared frame buffers: FRAME0 (raw), double-buffered</text>
+  <text x="350" y="504" text-anchor="middle" font-size="9.5" fill="#2c5c24">processed banks A/B, zero-copy via pointer handoff</text>
+
+  <line x1="350" y1="342" x2="350" y2="378" stroke="#4a8a3f" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Mailboxes and mutex -->
+  <rect x="555" y="380" width="180" height="68" rx="8" fill="#f3e3f2" stroke="#8d4a86" stroke-width="2"/>
+  <text x="645" y="404" text-anchor="middle" font-size="12" font-weight="bold" fill="#5e2c58">Hardware mailboxes</text>
+  <text x="645" y="422" text-anchor="middle" font-size="9.5" fill="#333">frame-ready / display-done</text>
+  <text x="645" y="436" text-anchor="middle" font-size="9.5" fill="#333">command passing (IPC)</text>
+
+  <rect x="555" y="462" width="180" height="68" rx="8" fill="#f3e3f2" stroke="#8d4a86" stroke-width="2"/>
+  <text x="645" y="486" text-anchor="middle" font-size="12" font-weight="bold" fill="#5e2c58">Hardware mutex (x1)</text>
+  <text x="645" y="504" text-anchor="middle" font-size="9.5" fill="#333">guards FRAME0 only,</text>
+  <text x="645" y="518" text-anchor="middle" font-size="9.5" fill="#333">the sole contention point</text>
+
+  <line x1="645" y1="342" x2="645" y2="378" stroke="#8d4a86" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="645" y1="448" x2="645" y2="460" stroke="#8d4a86" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Data flow annotation -->
+  <path d="M 265 92 C 340 60, 580 60, 655 92" fill="none" stroke="#2f6db3" stroke-width="1.6" stroke-dasharray="5,4" marker-end="url(#arr2)"/>
+  <text x="460" y="58" text-anchor="middle" font-size="10.5" fill="#2f6db3">capture (CPU1) -> process (CPU0) -> display (CPU2), pipelined across cores</text>
+</svg>
