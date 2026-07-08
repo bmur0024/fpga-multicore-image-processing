@@ -12,8 +12,7 @@ Built for ECE3073 Computer Systems at Monash University (S1 2026) by Group D10. 
 
 An ESP32-CAM streams 160x120 colour frames over SPI into the FPGA, where a three-core multiprocessor system-on-chip processes and displays them on a VGA monitor in real time. Five display modes are supported: raw passthrough, horizontal flip, 3x3 box blur, Sobel edge detection, and a 2x2 quad view showing all four simultaneously. Mode selection is driven by an ADXL345 accelerometer, so tilting the board switches the view.
 
-<!-- TODO: demo GIF here. -->
-<!-- ![Demo](media/demo.gif) -->
+![Quad view](docs/quad_mode_display.jpeg)
 
 ## Architecture
 
